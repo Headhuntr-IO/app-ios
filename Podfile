@@ -6,6 +6,7 @@ target 'Headhuntr' do
 
   # Pods for Headhuntr
   pod 'Amplify'
+  pod 'AmplifyPlugins/AWSCognitoAuthPlugin'
 
   target 'HeadhuntrTests' do
     inherit! :search_paths

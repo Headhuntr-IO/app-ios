@@ -12,7 +12,8 @@ struct ContentView: View {
     var body: some View {
         //SignUp()
         //Login()
-        Dashboard()
+        //Dashboard()
+        SearchList()
     }
 }
 

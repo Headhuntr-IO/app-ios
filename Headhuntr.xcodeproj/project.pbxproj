@@ -12,6 +12,7 @@
 		F01E43EC254CEF5100880FE7 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = F01E43EB254CEF5100880FE7 /* amplifyconfiguration.json */; };
 		F01E43F4254CF29300880FE7 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01E43F3254CF29300880FE7 /* Login.swift */; };
 		F01E43FC254CF2B900880FE7 /* SearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01E43FB254CF2B900880FE7 /* SearchList.swift */; };
+		F07904ED254EE4A000E15856 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07904EC254EE4A000E15856 /* API.swift */; };
 		F09B6BF3254CF8A6005AB554 /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09B6BF2254CF8A6005AB554 /* ChangePassword.swift */; };
 		F09B6BFB254CFE82005AB554 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09B6BFA254CFE82005AB554 /* SignUp.swift */; };
 		F09B6C03254D547E005AB554 /* Dashboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09B6C02254D547E005AB554 /* Dashboard.swift */; };
@@ -56,6 +57,7 @@
 		F01E43EB254CEF5100880FE7 /* amplifyconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		F01E43F3254CF29300880FE7 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		F01E43FB254CF2B900880FE7 /* SearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchList.swift; sourceTree = "<group>"; };
+		F07904EC254EE4A000E15856 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		F09B6BF2254CF8A6005AB554 /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
 		F09B6BFA254CFE82005AB554 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
 		F09B6C02254D547E005AB554 /* Dashboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dashboard.swift; sourceTree = "<group>"; };
@@ -157,6 +159,14 @@
 			path = ETC;
 			sourceTree = "<group>";
 		};
+		F07904EB254EE46900E15856 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F07904EC254EE4A000E15856 /* API.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F0DA5E9125418E2700C9F583 = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +194,7 @@
 			children = (
 				F01E43F2254CF25700880FE7 /* ETC */,
 				F01E43F1254CF24500880FE7 /* Config */,
+				F07904EB254EE46900E15856 /* Model */,
 				F01E43F0254CF23D00880FE7 /* View */,
 				F0DA5EAB25418E2900C9F583 /* Info.plist */,
 				F0DA5EA125418E2900C9F583 /* Assets.xcassets */,
@@ -460,6 +471,7 @@
 				F0DA5EA725418E2900C9F583 /* Persistence.swift in Sources */,
 				F01E43F4254CF29300880FE7 /* Login.swift in Sources */,
 				F0DA5EAA25418E2900C9F583 /* Headhuntr.xcdatamodeld in Sources */,
+				F07904ED254EE4A000E15856 /* API.swift in Sources */,
 				F09B6C03254D547E005AB554 /* Dashboard.swift in Sources */,
 				F0DA5EA025418E2700C9F583 /* ContentView.swift in Sources */,
 				F09B6BFB254CFE82005AB554 /* SignUp.swift in Sources */,

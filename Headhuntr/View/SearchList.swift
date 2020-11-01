@@ -15,21 +15,29 @@ struct SearchList: View {
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
+    
+    private let api = BackendAPI.instance
 
     var body: some View {
-        List {
-            ForEach(items) { item in
-                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+        
+        VStack {
+            Button("Load Things Up!") {
+                //Label("Add Item", systemImage: "plus")
+                api.search(page: PageRequest()) { (result: Result<PageResults<Candidate>,Error>) in
+                    switch result {
+                    case .success:
+                        print("Success")
+                    case .failure:
+                        print("Failes")
+                    }
+                }
             }
-            .onDelete(perform: deleteItems)
-        }
-        .toolbar {
-            #if os(iOS)
-            EditButton()
-            #endif
-
-            Button(action: addItem) {
-                Label("Add Item", systemImage: "plus")
+            
+            List {
+                ForEach(items) { item in
+                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                }
+                .onDelete(perform: deleteItems)
             }
         }
     }

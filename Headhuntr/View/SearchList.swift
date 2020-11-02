@@ -17,16 +17,20 @@ struct SearchList: View {
     private var items: FetchedResults<Item>
     
     private let api = BackendAPI.instance
+    
+    @State var companies = [Backend.Company]()
 
     var body: some View {
         
         VStack {
             Button("Load Things Up!") {
                 //Label("Add Item", systemImage: "plus")
-                api.search(page: PageRequest()) { (result: Result<PageResults<Candidate>,Error>) in
+                api.search(page: PageRequest()) { (result: Result<PageResults<Backend.Company>,Error>) in
                     switch result {
-                    case .success:
+                    case .success(let searchResult):
                         print("Success")
+                        
+                        self.companies = searchResult.results
                     case .failure:
                         print("Failes")
                     }
@@ -34,8 +38,11 @@ struct SearchList: View {
             }
             
             List {
-                ForEach(items) { item in
-                    Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+                ForEach(companies) { company in
+                    VStack {
+                        Text(company.name).font(.title)
+                        Text("Candidates: \(company.candidateCount)")
+                    }
                 }
                 .onDelete(perform: deleteItems)
             }

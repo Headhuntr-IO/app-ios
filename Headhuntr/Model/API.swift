@@ -33,30 +33,40 @@ protocol Resource: Identifiable, Codable {
     static var resourcePath: String { get }
 }
 
-struct Candidate: Resource {
-    
-    static let resourcePath = "candidates"
-    
-    let id: String
-    let firstName: String
-    let lastName: String
-    let fullName: String
-    let monthsExperience: Int
-    let jobHistory: [JobDetail]
-    
-    struct JobDetail: Codable {
-        let sequence: Int
-        let companyId: String
-        let companyName: String
-        let title: String
-        let description: String
-        let location: String
+struct Backend {
+
+    struct Candidate: Resource {
+        
+        static let resourcePath = "candidates"
+        
+        let id: String
+        let firstName: String
+        let lastName: String
+        let fullName: String
         let monthsExperience: Int
-        //TODO: start, end
+        let jobHistory: [JobDetail]
+        
+        struct JobDetail: Codable {
+            let sequence: Int
+            let companyId: String
+            let companyName: String
+            let title: String
+            let description: String
+            let location: String
+            let monthsExperience: Int
+            //TODO: start, end
+        }
+    }
+    
+    struct Company: Resource {
+        
+        static let resourcePath = "companies"
+        
+        let id: String
+        let name: String
+        let candidateCount: Int
     }
 }
-
-
 
 // MARK: - Pagination
 
@@ -136,6 +146,7 @@ class BackendAPI: API {
     
     private let url = "https://293jgimfk3.execute-api.us-east-1.amazonaws.com"
     private let accessTokenProvider = AccessTokenProvider.instance
+    private let decoder = JSONDecoder()
     
     //if you are ever in a tricky situation to bypass the trust check (for local dev) use "session" instead of "AF"
 //    private let session: Session = {
@@ -164,7 +175,7 @@ class BackendAPI: API {
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                    if let entity: T = try? JSONDecoder().decode(T.self, from: json.rawData()) {
+                    if let entity: T = try? self.decoder.decode(T.self, from: json.rawData()) {
                         completionHandler(Result.success(entity))
                     }
                 case .failure(let error):
@@ -192,7 +203,7 @@ class BackendAPI: API {
                     let json = JSON(value)
                     
                     do {
-                        let entity: T = try JSONDecoder().decode(T.self, from: json.rawData())
+                        let entity: T = try self.decoder.decode(T.self, from: json.rawData())
                         completionHandler(.success(entity))
                     } catch {
                         completionHandler(.failure(error))
@@ -222,11 +233,10 @@ class BackendAPI: API {
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                    let decoder = JSONDecoder()
                     
                     do {
-                        let entityList: [T] = try decoder.decode([T].self, from: json["_embedded"][T.resourcePath].rawData())
-                        let pageData: PageResults.Page = try decoder.decode(PageResults<T>.Page.self, from: json["page"].rawData())
+                        let entityList: [T] = try self.decoder.decode([T].self, from: json["_embedded"][T.resourcePath].rawData())
+                        let pageData: PageResults.Page = try self.decoder.decode(PageResults<T>.Page.self, from: json["page"].rawData())
                         
                         completionHandler(.success(PageResults(results: entityList, page: pageData)))
                     } catch {

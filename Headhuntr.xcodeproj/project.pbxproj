@@ -12,6 +12,10 @@
 		F01E43EC254CEF5100880FE7 /* amplifyconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = F01E43EB254CEF5100880FE7 /* amplifyconfiguration.json */; };
 		F01E43F4254CF29300880FE7 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01E43F3254CF29300880FE7 /* Login.swift */; };
 		F01E43FC254CF2B900880FE7 /* SearchList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01E43FB254CF2B900880FE7 /* SearchList.swift */; };
+		F02F0AC9254FCEF00062549C /* JobDetail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F0AC5254FCEF00062549C /* JobDetail+CoreDataClass.swift */; };
+		F02F0ACA254FCEF00062549C /* JobDetail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F0AC6254FCEF00062549C /* JobDetail+CoreDataProperties.swift */; };
+		F02F0ACB254FCEF00062549C /* Candidate+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F0AC7254FCEF00062549C /* Candidate+CoreDataClass.swift */; };
+		F02F0ACC254FCEF00062549C /* Candidate+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02F0AC8254FCEF00062549C /* Candidate+CoreDataProperties.swift */; };
 		F07904ED254EE4A000E15856 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07904EC254EE4A000E15856 /* API.swift */; };
 		F09B6BF3254CF8A6005AB554 /* ChangePassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09B6BF2254CF8A6005AB554 /* ChangePassword.swift */; };
 		F09B6BFB254CFE82005AB554 /* SignUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F09B6BFA254CFE82005AB554 /* SignUp.swift */; };
@@ -57,6 +61,10 @@
 		F01E43EB254CEF5100880FE7 /* amplifyconfiguration.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = amplifyconfiguration.json; sourceTree = "<group>"; };
 		F01E43F3254CF29300880FE7 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		F01E43FB254CF2B900880FE7 /* SearchList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchList.swift; sourceTree = "<group>"; };
+		F02F0AC5254FCEF00062549C /* JobDetail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobDetail+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F02F0AC6254FCEF00062549C /* JobDetail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "JobDetail+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F02F0AC7254FCEF00062549C /* Candidate+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Candidate+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F02F0AC8254FCEF00062549C /* Candidate+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Candidate+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		F07904EC254EE4A000E15856 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		F09B6BF2254CF8A6005AB554 /* ChangePassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePassword.swift; sourceTree = "<group>"; };
 		F09B6BFA254CFE82005AB554 /* SignUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUp.swift; sourceTree = "<group>"; };
@@ -159,9 +167,21 @@
 			path = ETC;
 			sourceTree = "<group>";
 		};
+		F02F0AA8254FC8920062549C /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				F02F0AC5254FCEF00062549C /* JobDetail+CoreDataClass.swift */,
+				F02F0AC6254FCEF00062549C /* JobDetail+CoreDataProperties.swift */,
+				F02F0AC7254FCEF00062549C /* Candidate+CoreDataClass.swift */,
+				F02F0AC8254FCEF00062549C /* Candidate+CoreDataProperties.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
 		F07904EB254EE46900E15856 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F02F0AA8254FC8920062549C /* Entities */,
 				F07904EC254EE4A000E15856 /* API.swift */,
 			);
 			path = Model;
@@ -468,6 +488,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F01E43FC254CF2B900880FE7 /* SearchList.swift in Sources */,
+				F02F0AC9254FCEF00062549C /* JobDetail+CoreDataClass.swift in Sources */,
+				F02F0ACB254FCEF00062549C /* Candidate+CoreDataClass.swift in Sources */,
+				F02F0ACC254FCEF00062549C /* Candidate+CoreDataProperties.swift in Sources */,
+				F02F0ACA254FCEF00062549C /* JobDetail+CoreDataProperties.swift in Sources */,
 				F0DA5EA725418E2900C9F583 /* Persistence.swift in Sources */,
 				F01E43F4254CF29300880FE7 /* Login.swift in Sources */,
 				F0DA5EAA25418E2900C9F583 /* Headhuntr.xcdatamodeld in Sources */,
@@ -636,6 +660,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Headhuntr/Preview Content\"";
 				DEVELOPMENT_TEAM = URYAKN64F7;
 				ENABLE_PREVIEWS = YES;
@@ -645,6 +670,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = info.startupbuilder.hhv2.Headhuntr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -661,6 +687,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Headhuntr/Preview Content\"";
 				DEVELOPMENT_TEAM = URYAKN64F7;
 				ENABLE_PREVIEWS = YES;
@@ -670,6 +697,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = info.startupbuilder.hhv2.Headhuntr;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

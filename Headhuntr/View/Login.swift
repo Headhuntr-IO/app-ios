@@ -34,6 +34,7 @@ struct Login: View {
                     
                     switch result {
                     case .success(let auth):
+                        errorMessage = "OK"
                         print(auth)
                     case .failure(let error):
                         errorMessage = error.localizedDescription

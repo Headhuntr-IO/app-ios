@@ -21,8 +21,8 @@ extension JobDetail {
     @NSManaged public var end: Date?
     @NSManaged public var jobDescription: String?
     @NSManaged public var location: String?
-    @NSManaged public var monthsExperience: Int32
-    @NSManaged public var sequence: Int16
+    @NSManaged public var monthsExperience: Int64
+    @NSManaged public var sequence: Int64
     @NSManaged public var start: Date?
     @NSManaged public var title: String?
     @NSManaged public var candidate: Candidate?

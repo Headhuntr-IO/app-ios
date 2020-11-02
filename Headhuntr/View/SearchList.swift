@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct SearchList: View {
     
@@ -22,16 +23,11 @@ struct SearchList: View {
         
         VStack {
             Button("Load Things Up!") {
-                api.search(page: PageRequest()) { (result: Result<PageResults<Backend.Candidate>,Error>) in
-                    switch result {
-                    case .success(let searchResult):
-                        print("Success")
-                        
-                        self.updateCandidates(searchResult.results)
-                    case .failure:
-                        print("Failes")
-                    }
-                }
+                loadCandidatesFromBackend()
+            }
+            
+            Button("Delete All") {
+                deleteAll()
             }
             
             List {
@@ -41,6 +37,19 @@ struct SearchList: View {
                         Text("Experience: \(candidate.monthsExperience)")
                     }
                 }
+            }
+        }
+    }
+    
+    private func loadCandidatesFromBackend() {
+        api.search(page: PageRequest()) { (result: Result<PageResults<Backend.Candidate>,Error>) in
+            switch result {
+            case .success(let searchResult):
+                print("Success")
+                
+                self.updateCandidates(searchResult.results)
+            case .failure:
+                print("Failes")
             }
         }
     }
@@ -65,29 +74,23 @@ struct SearchList: View {
             }
         }
     }
+    
+    private func deleteAll() {
+        withAnimation {
+            
+            let deleteFetch: NSFetchRequest<Candidate> = Candidate.fetchRequest()
+            
+            let allCandidates: [Candidate] = try! viewContext.fetch(deleteFetch)
+            
+            for c in allCandidates {
+                viewContext.delete(c)
+            }
+            
+            try! viewContext.save()
+        }
+    }
 
-//    private func deleteItems(offsets: IndexSet) {
-//        withAnimation {
-//            offsets.map { items[$0] }.forEach(viewContext.delete)
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
 }
-
-//private let itemFormatter: DateFormatter = {
-//    let formatter = DateFormatter()
-//    formatter.dateStyle = .short
-//    formatter.timeStyle = .medium
-//    return formatter
-//}()
 
 struct SearchListView_Previews: PreviewProvider {
     static var previews: some View {

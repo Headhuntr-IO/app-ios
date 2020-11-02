@@ -5,8 +5,8 @@
         <attribute name="fullName" optional="YES" attributeType="String"/>
         <attribute name="id" attributeType="String"/>
         <attribute name="lastName" optional="YES" attributeType="String"/>
-        <attribute name="monthsExperience" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <relationship name="jobHistory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="JobDetail" inverseName="candidate" inverseEntity="JobDetail"/>
+        <attribute name="monthsExperience" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="jobHistory" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="JobDetail" inverseName="candidate" inverseEntity="JobDetail"/>
     </entity>
     <entity name="JobDetail" representedClassName=".JobDetail" syncable="YES">
         <attribute name="companyId" optional="YES" attributeType="String"/>
@@ -14,11 +14,11 @@
         <attribute name="end" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="jobDescription" optional="YES" attributeType="String"/>
         <attribute name="location" optional="YES" attributeType="String"/>
-        <attribute name="monthsExperience" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="sequence" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="monthsExperience" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="sequence" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="start" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="title" optional="YES" attributeType="String"/>
-        <relationship name="candidate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Candidate" inverseName="jobHistory" inverseEntity="Candidate"/>
+        <relationship name="candidate" maxCount="1" deletionRule="Nullify" destinationEntity="Candidate" inverseName="jobHistory" inverseEntity="Candidate"/>
     </entity>
     <elements>
         <element name="Candidate" positionX="-63" positionY="-18" width="128" height="133"/>

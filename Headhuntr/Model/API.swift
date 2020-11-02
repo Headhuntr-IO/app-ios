@@ -33,6 +33,7 @@ protocol Resource: Identifiable, Codable {
     static var resourcePath: String { get }
 }
 
+//to namespace our Backend entities
 struct Backend {
 
     struct Candidate: Resource {

@@ -20,8 +20,25 @@ extension Candidate {
     @NSManaged public var fullName: String?
     @NSManaged public var id: String?
     @NSManaged public var lastName: String?
-    @NSManaged public var monthsExperience: Int32
-    @NSManaged public var jobHistory: JobDetail?
+    @NSManaged public var monthsExperience: Int64
+    @NSManaged public var jobHistory: NSSet?
+
+}
+
+// MARK: Generated accessors for jobHistory
+extension Candidate {
+
+    @objc(addJobHistoryObject:)
+    @NSManaged public func addToJobHistory(_ value: JobDetail)
+
+    @objc(removeJobHistoryObject:)
+    @NSManaged public func removeFromJobHistory(_ value: JobDetail)
+
+    @objc(addJobHistory:)
+    @NSManaged public func addToJobHistory(_ values: NSSet)
+
+    @objc(removeJobHistory:)
+    @NSManaged public func removeFromJobHistory(_ values: NSSet)
 
 }
 
